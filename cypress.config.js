@@ -3,8 +3,11 @@ const { defineConfig } = require("cypress");
 //const path = require("path");
 
 module.exports = defineConfig({
+  reporter: 'cypress-mochawesome-reporter',
   e2e: {
     setupNodeEvents(on, config) {
+      this.screenshotOnRunFailure=true;
+      require('cypress-mochawesome-reporter/plugin')(on);
       // implement node event listeners here
       //on("task", {
         //"gmail:get-messages": async (args) => {
