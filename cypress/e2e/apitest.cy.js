@@ -49,7 +49,7 @@ it('Intercept by matching POST method', () => {
   cy.visit('https://reqres.in/')
   //cy.intercept({
    //path: 'api/users' //path parameter which is to be clicked
-   cy.intercept('api/users', (req) => {
+   cy.intercept('https://reqres.in/api/users', (req) => {
     req.reply({
       status: 200,
       body: {
