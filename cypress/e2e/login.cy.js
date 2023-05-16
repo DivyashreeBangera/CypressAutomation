@@ -1,5 +1,5 @@
 describe('template spec', () => {
-  it('Visit to the SuperAdmin Login page', () => {
+  it('Visit to the opensource Login page', () => {
     //opens Login page of SuperAdmin
         cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
         cy.title().should('eq','OrangeHRM')
@@ -8,4 +8,13 @@ describe('template spec', () => {
         cy.get('[type=submit]').click()
         cy.wait(5000)
   })
+
+it('negative scenario check ', () => {
+    //opens Login page of SuperAdmin
+        cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+        cy.title().should('eq','OrangeHRM')
+        cy.get('input[name=username]').should('include.text', 'hello')
+        cy.get('input[name=password]').should('include.text', 'hello')
+  })
+
 })
